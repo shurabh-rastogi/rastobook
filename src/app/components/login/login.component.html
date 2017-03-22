@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <h2 style="text-align: center">Login</h2>
+    <p *ngIf="loginError != ''">{{loginError}}</p>
+    <form [formGroup]="loginForm" novalidate (ngSubmit)="appLogin(loginForm.value, loginForm.valid)">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"
+          formControlName="email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+          formControlName="password">
+      </div>
+      <button type="submit" class="btn btn-default" [disabled]="!loginForm.valid">Login</button>
+    </form><br/>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>User Name</th>
+            <th>Password</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userList | async; let lineNo = index">
+            <th scope="row">{{ lineNo }}</th>
+            <td>{{ user.email }}</td>
+            <td>{{ user.username }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+</div>

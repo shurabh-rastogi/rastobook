@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <nav class="navbar">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a routerLink="/profile" routerLinkActive="active">Profile</a>
+        </li>
+        <li>
+          <a routerLink="/posts" routerLinkActive="active">Posts</a>
+        </li>
+        <li>
+          <a routerLink="/photos" routerLinkActive="active">Photos</a>
+        </li>
+      </ul>
+    </nav>
+    <h3>Account Detail</h3>
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd>{{user.name}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt>User Name</dt>
+      <dd>{{user.username}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt>Email</dt>
+      <dd>{{user.email}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt>Address</dt>
+      <dd>{{user.address.street}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt>Website</dt>
+      <dd>{{user.website}}</dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt>Company</dt>
+      <dd>{{user.company.name}}</dd>
+    </dl>
+  </div>
+  <div class="col-md-2"></div>
+</div>

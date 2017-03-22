@@ -1,20 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { appRoutes } from './app.route';
+import { LoginComponent } from './components/login/login.component';
+import { SharedModule } from './modules/shared/share.module';
+import { RastoBookLoginGuard } from './modules/shared/guards/auth.guard';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    ReactiveFormsModule, 
+    HttpModule,
+    RouterModule.forRoot(appRoutes),
+    SharedModule.forRoot()
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    RastoBookLoginGuard
+  ],
+  bootstrap: [AppComponent],
+  exports: [
+    RouterModule
+  ]
 })
 export class AppModule { }
