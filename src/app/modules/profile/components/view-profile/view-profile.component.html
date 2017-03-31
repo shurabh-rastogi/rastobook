@@ -1,19 +1,7 @@
 <div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-8">
-    <nav class="navbar">
-      <ul class="nav navbar-nav">
-        <li class="active">
-          <a routerLink="/profile" routerLinkActive="active">Profile</a>
-        </li>
-        <li>
-          <a routerLink="/posts" routerLinkActive="active">Posts</a>
-        </li>
-        <li>
-          <a routerLink="/photos" routerLinkActive="active">Photos</a>
-        </li>
-      </ul>
-    </nav>
+    <app-header [activeTab]="Profile"></app-header>
     <h3>Account Detail</h3>
     <dl class="dl-horizontal">
       <dt>Name</dt>

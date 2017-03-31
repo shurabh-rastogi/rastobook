@@ -58,23 +58,23 @@ export class SharedService {
             .map((user: User) =>  user);
     }
 
-    getUsersPost(userId: string): Observable<Posts[]>{
+    getUsersPost(userId: string): Observable<Posts>{
         return this.http.get(this.baseUrl + 'posts')
-            .map((res: Response) => res.json())
+            .flatMap((res: Response) => res.json())
             .filter((posts: Posts) => posts.userId == userId)
             .catch(this.handleError);
     }
     
-    getCommentsByPostId(postId: string): Observable<Comments[]>{
+    getCommentsByPostId(postId: string): Observable<Comments>{
         return this.http.get(this.baseUrl + 'comments')
-            .map((res: Response) => res.json())
+            .flatMap((res: Response) => res.json())
             .filter((comments: Comments) => comments.postId == postId)
             .catch(this.handleError);
     }
 
-    getAlbumsByUserId(userId: string): Observable<Album[]>{
+    getAlbumsByUserId(userId: string): Observable<Album>{
         return this.http.get(this.baseUrl + 'albums')
-            .map((res: Response) => res.json())
+            .flatMap((res: Response) => res.json())
             .filter((album: Album) => album.userId == userId)
             .catch(this.handleError);
     }

@@ -1,14 +1,14 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { ViewProfileServiceService } from './view-profile-service.service';
+import { ViewProfileService } from './view-profile-service.service';
 
-describe('ViewProfileServiceService', () => {
+describe('ViewProfileService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ViewProfileServiceService]
+      providers: [ViewProfileService]
     });
   });
 
-  it('should ...', inject([ViewProfileServiceService], (service: ViewProfileServiceService) => {
+  it('should ...', inject([ViewProfileService], (service: ViewProfileService) => {
     expect(service).toBeTruthy();
   }));
 });

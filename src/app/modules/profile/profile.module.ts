@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
+import { SharedModule } from '../shared/share.module';
+
 import { profileRoutes } from './profile.route';
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 import { ViewProfileService } from './services/view-profile-service.service';
@@ -12,6 +14,7 @@ import { ViewProfileService } from './services/view-profile-service.service';
   ],
   imports: [
     CommonModule,
+    SharedModule, 
     RouterModule.forChild(profileRoutes)
   ],
   providers: [

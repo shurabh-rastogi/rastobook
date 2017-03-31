@@ -1,0 +1,7 @@
+<nav class="navbar">
+    <ul class="nav nav-pills nav-justified">
+        <li *ngFor="let tab of tabList" [ngClass]="{'active': tab.isActive, '': !tab.isActive}">
+            <a (click)="displayTab(tab.name)">{{ tab.name }}</a>
+        </li>
+    </ul>
+</nav>
