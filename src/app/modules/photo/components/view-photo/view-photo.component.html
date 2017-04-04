@@ -3,7 +3,24 @@
   <div class="col-md-8">
     <app-header  [activeTab]="Photos"></app-header>
     <h3>Photos</h3>
-    {{ albums | json}}
+    <div class="list-group"
+      *ngFor="let album of albums">
+      <a class="list-group-item" 
+        (click)="showAlbum(album)"
+        [ngClass]="{'active': album.isActive}">
+        <h4 class="list-group-item-heading">
+          {{ album.title }}
+        </h4>
+        <p class="list-group-item-text row"
+          *ngIf="album.isActive">
+          <a href="#" class="thumbnail col-xs-6 col-sm-2"
+            *ngFor="let photo of album.photos">
+            <img src="{{photo.thumbnailUrl}}" alt="{{photo.title}}">
+          </a>
+          <span class="clearfix visible-xs-block"></span>
+        </p>
+      </a>
+    </div>
   </div>
   <div class="col-md-2"></div>
 </div>

@@ -79,9 +79,9 @@ export class SharedService {
             .catch(this.handleError);
     }
 
-    getPhotosByAlbumId(albumId: string): Observable<Photo[]>{
+    getPhotosByAlbumId(albumId: string): Observable<Photo>{
         return this.http.get(this.baseUrl + 'photos')
-            .map((res: Response) => res.json())
+            .flatMap((res: Response) => res.json())
             .filter((photo: Photo) => photo.albumId == albumId)
             .catch(this.handleError);
     }
